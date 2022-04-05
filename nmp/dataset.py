@@ -172,7 +172,6 @@ class Dataset:
                       low_lim=21, high_lim=109):
         """Build a dataset."""
         print("Building %s dataset (%d files)" % (name, len(self.midi_list)))
-
         for m in self.midi_list:
             prt = import_one(str(self.path / m), beat_resolution=self.fs,
                              binarize=0)
