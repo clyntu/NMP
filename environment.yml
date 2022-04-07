@@ -112,7 +112,7 @@ dependencies:
   - requests=2.24.0=py_0
   - requests-oauthlib=1.3.0=py_0
   - rsa=4.0=py_0
-  - scipy=1.5.0=py37h9439919_0
+  - scipy=1.4.1=py37h9439919_0
   - seaborn=0.10.1=py_0
   - send2trash=1.5.0=py37_0
   - setuptools=49.1.0=py37_0

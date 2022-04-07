@@ -28,8 +28,8 @@ def build_model(inp_shape, num_ts, num_notes, bs):
     return model
 
 
-def build_gru_model(num_notes, batch_size):
-    """Create Keras recurrent model."""
+def build_lstm_model(num_notes, batch_size):
+    """Create Keras LSTM model."""
     model = Sequential(
         [Input(batch_input_shape=[batch_size, None, 10*num_notes]),
          LSTM(units=128,
@@ -43,6 +43,20 @@ def build_gru_model(num_notes, batch_size):
 
     return model
 
+def build_gru_model(num_notes, batch_size):
+    """Create Keras GRU model"""
+    model = Sequential(
+        [Input(batch_input_shape=[batch_size, None, 10*num_notes]),
+         GRU(units=128,
+              return_sequences=True,
+              stateful=True),
+         Dense(units=64),
+         Dense(units=num_notes*10,
+               activation='sigmoid',
+               name='Output')]
+            )
+
+    return model
 
 def compile_model(model, loss, optimizer, metrics):
     """Compile Keras model."""
